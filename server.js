@@ -12,8 +12,13 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
+// 跨域中间件
 app.use(cors());
+// 请求中间件
 app.use(bodyParser.json());
+
+//指定静态资源路径
+app.use(express.static(path.join(__dirname, "public")))
 
 // 路由
 app.use("/api/exhibitions", exhibitionsRouter);
